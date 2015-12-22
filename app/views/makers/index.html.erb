@@ -1,0 +1,9 @@
+<h2>Liste des fournisseurs</h2>
+  
+  <ul>
+    <% @makers.each do |maker| %>
+      <li>
+        <p><%= maker.name %></p>
+      </li>
+    <% end %>
+  </ul>
