@@ -1,9 +1,11 @@
 <h2>Liste des fournisseurs</h2>
-  
+
+<%= link_to "Ajouter un fournisseur", new_maker_path %>
+
   <ul>
-    <% @makers.each do |maker| %>
+    <% Maker.all.each do |maker| %>
       <li>
-        <p><%= maker.name %></p>
+        <%= link_to maker.name, maker_path(maker) %>
       </li>
     <% end %>
   </ul>

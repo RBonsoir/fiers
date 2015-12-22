@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
 
-  before_action :authenticate_user!, unless: :pages_controller?
+  # before_action :authenticate_user!, unless: :pages_controller?
 
   # Uncomment these lines to get pundit
   # include Pundit
