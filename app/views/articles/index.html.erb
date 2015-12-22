@@ -1,0 +1,18 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<h2>Liste des Articles</h2>
+
+			<%= link_to "Ajouter un article", new_article_path %>
+
+			  <ul>
+			    <% Article.all.each do |article| %>
+			      <li>
+			        <%= link_to article.title, article_path(article) %>
+			      </li>
+			    <% end %>
+			  </ul>
+
+  		</div>
+  	</div>
+</div>

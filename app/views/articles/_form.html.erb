@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+			<%= form_for @article  do |f| %>
+
+				<div class="form-group">
+					<%= f.label :title, "Titre" %>
+					<%= f.text_field :title, placeholder: "Titre", class: "form-control" %>
+				</div>
+				
+				<div class="form-group">
+					<%= f.label :text_fr, "Texte en Français"  %>
+					<%= f.text_field :text_fr, placeholder: "Texte en Français", class: "form-control" %>
+				</div>
+
+				<div class="form-group">
+					<%= f.label :text_en , "Texte en Anglais"%>
+					<%= f.text_field :text_en, placeholder: "Texte en Anglais", class: "form-control" %>
+				</div>
+
+				<div class="form-group">
+					<%= f.label :status, "Statut" %>
+					<%= f.select :status, [["Draft", "Draft"], ["Publié", "Publié"]], class: "form-control" %>
+				</div>
+				
+				<%= f.submit class: "btn btn-success" %>
+			<% end %>
+		</div>		
+	</div>	
+</div>

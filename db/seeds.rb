@@ -9,3 +9,5 @@
 
 Maker.create(name: "Jars")
 Maker.create(name: "Comme des Garçons")
+
+Product.create(name: "Produit à la race")
