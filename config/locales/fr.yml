@@ -1,3 +1,8 @@
 fr:
   admin:
     authorization_failure: "Tu n'es pas administrateur"
+    articles:
+      create:
+        flash:
+          notice: "Article créé avec succès."
+          alert: "Impoosible de créer l'article."

@@ -1,0 +1,20 @@
+<div class="article--tpl-orchid">
+  <div class="row">
+    <div class="col-xs-12 col-md-10">
+      <h2><%= article.title %></h2>
+
+      <%= selection_link article.selections_by_position[1] %>
+      <%= selection_link article.selections_by_position[2] %>
+
+      <p><%= article.author.full_name %></p>
+      <p><%= l(article.written_at, format: :short) %></p>
+
+      <p><%= article.text_fr %></p>
+      <p><%= article.text_en %></p>
+    </div>
+
+    <div class="col-xs-12 col-md-2">
+      <%= selection_link article.selections_by_position[3] %>
+    </div>
+  </div>
+</div>

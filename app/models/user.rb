@@ -3,5 +3,11 @@ class User < ActiveRecord::Base
   # :registerable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
+
   has_many :articles, foreign_key: "author_id"
+
+  def full_name
+    email
+    # "#{first_name} #{last_name}" # TODO
+  end
 end

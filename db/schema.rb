@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151223150645) do
+ActiveRecord::Schema.define(version: 20151223154038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,17 +29,15 @@ ActiveRecord::Schema.define(version: 20151223150645) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
-    t.string   "text_fr"
-    t.string   "text_en"
+    t.text     "text_fr"
+    t.text     "text_en"
     t.string   "status"
-    t.integer  "maker_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "author_id"
     t.string   "template_name"
+    t.datetime "written_at"
   end
-
-  add_index "articles", ["maker_id"], name: "index_articles_on_maker_id", using: :btree
 
   create_table "images", force: :cascade do |t|
     t.string   "name"
@@ -103,7 +101,6 @@ ActiveRecord::Schema.define(version: 20151223150645) do
 
   add_foreign_key "article_selections", "articles"
   add_foreign_key "article_selections", "images"
-  add_foreign_key "articles", "makers"
   add_foreign_key "articles", "users", column: "author_id"
   add_foreign_key "products", "makers"
 end

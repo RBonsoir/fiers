@@ -4,6 +4,9 @@ ruby "2.2.4"
 
 gem "rails", "4.2.5"
 gem "pg"
+
+gem "config"
+gem "enumerize"
 gem "figaro"
 gem "simple_form"
 gem "country_select"

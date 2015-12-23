@@ -1,14 +1,29 @@
-<div class="container">
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <h1><%= @article.title %></h1>
 
-      <h1><%= @article.title %></h1>
+    <p><%= @article.status_text %></p>
+    <p><%= @article.template_name_text %></p>
 
-      <p><%= @article.text_fr %></p>
-      <p><%= @article.text_en %></p>
+    <p><%= @article.author.full_name %></p>
+    <p><%= l(@article.written_at, format: :short) %></p>
 
-      <%= link_to "Modifier l'article", edit_admin_article_path(@article) %>
-      <%= link_to "Supprimer l'article", admin_article_path(@article), method: :delete %>
-    </div>
+    <p><%= @article.text_fr %></p>
+    <p><%= @article.text_en %></p>
+
+    <% @article.article_selections.each do |selection| %>
+      <div>
+        <%= image_tag selection.image.picture %>
+
+        <% if selection.image.product_or_maker_type == 'Product' %>
+          <%= link_to selection.image.product_or_maker.name, admin_product_path(selection.image.product_or_maker) %>
+        <% else %>
+          <%= link_to selection.image.product_or_maker.name, admin_maker_path(selection.image.product_or_maker) %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <%= link_to "Modifier l'article", edit_admin_article_path(@article) %>
+    <%= link_to "Supprimer l'article", admin_article_path(@article), method: :delete %>
   </div>
 </div>

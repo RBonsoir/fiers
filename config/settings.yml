@@ -1,0 +1,6 @@
+articles:
+  templates:
+    default: orchid
+    list:
+      orchid:
+        selections_count: 3

@@ -1,0 +1,22 @@
+fr:
+  activerecord:
+    models:
+      article: Article
+      article_selection: "Sélection d'article"
+      image: "Image"
+      maker: "Fabriquant"
+      product: "Produit"
+      tag: "Tag"
+      user: "Utilisateur"
+    attributes:
+      article:
+        author_id: Autheur
+        status: Statut
+        template_name: Template
+        text_en: Texte (EN)
+        text_fr: Texte (FR)
+        title: Titre
+        written_at: "Écrit le"
+      article_selection:
+        image_id: Image
+        position: Position

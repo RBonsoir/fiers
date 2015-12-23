@@ -2,4 +2,18 @@
 
 <%= link_to "Retour à la liste", admin_articles_path %>
 
-<%= render "form" %>
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <%= simple_form_for [:admin, @article] do |f| %>
+
+      <%= f.input :title %>
+      <%= f.input :text_fr %>
+      <%= f.input :text_en %>
+      <%= f.input :written_at %>
+      <%= f.input :status, prompt: :translate  %>
+      <%= f.input :template_name, prompt: :translate %>
+
+      <%= f.submit class: "btn btn-success" %>
+    <% end %>
+  </div>
+</div>

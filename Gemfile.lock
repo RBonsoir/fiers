@@ -67,6 +67,9 @@ GEM
       climate_control (>= 0.0.3, < 1.0)
     coderay (1.1.0)
     concurrent-ruby (1.0.0)
+    config (1.0.0)
+      activesupport (>= 3.0)
+      deep_merge (~> 1.0.0)
     countries (1.2.2)
       currencies (~> 0.4.2)
       i18n_data (~> 0.7.0)
@@ -75,6 +78,7 @@ GEM
       sort_alphabetical (~> 1.0)
     currencies (0.4.2)
     debug_inspector (0.0.2)
+    deep_merge (1.0.1)
     devise (3.5.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -84,6 +88,8 @@ GEM
       warden (~> 1.2.3)
     devise-i18n (0.12.1)
     devise-i18n-views (0.3.7)
+    enumerize (0.10.1)
+      activesupport (>= 3.2)
     erubis (2.7.0)
     execjs (2.6.0)
     figaro (1.1.1)
@@ -216,10 +222,12 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
+  config
   country_select
   devise
   devise-i18n
   devise-i18n-views
+  enumerize
   figaro
   font-awesome-sass
   high_voltage

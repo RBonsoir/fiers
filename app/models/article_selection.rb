@@ -1,4 +1,4 @@
 class ArticleSelection < ActiveRecord::Base
-  belongs_to :image
   belongs_to :article
+  belongs_to :image
 end

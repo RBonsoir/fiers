@@ -1,45 +1,43 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-      <%= form_for [:admin, @maker]  do |f| %>
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <%= form_for [:admin, @maker]  do |f| %>
 
-        <div class="form-group">
-          <%= f.label :name, "Nom" %>
-          <%= f.text_field :name, placeholder: "Nom", class: "form-control" %>
-        </div>
+      <div class="form-group">
+        <%= f.label :name, "Nom" %>
+        <%= f.text_field :name, placeholder: "Nom", class: "form-control" %>
+      </div>
 
-        <div class="form-group">
-          <%= f.label :street, "Adresse"  %>
-          <%= f.text_field :street, placeholder: "Adresse", class: "form-control" %>
-        </div>
+      <div class="form-group">
+        <%= f.label :street, "Adresse"  %>
+        <%= f.text_field :street, placeholder: "Adresse", class: "form-control" %>
+      </div>
 
-        <div class="form-group">
-          <%= f.label :postcode , "Code postal"%>
-          <%= f.text_field :postcode, placeholder: "Code Postal", class: "form-control" %>
-        </div>
+      <div class="form-group">
+        <%= f.label :postcode , "Code postal"%>
+        <%= f.text_field :postcode, placeholder: "Code Postal", class: "form-control" %>
+      </div>
 
-        <div class="form-group">
-          <%= f.label :city, "Ville" %>
-          <%= f.text_field :city, placeholder: "Ville", class: "form-control" %>
-        </div>
+      <div class="form-group">
+        <%= f.label :city, "Ville" %>
+        <%= f.text_field :city, placeholder: "Ville", class: "form-control" %>
+      </div>
 
-        <div class="form-group">
-          <%= f.label :country, "Pays" %>
-          <%= f.text_field :country, placeholder: "Pays", class: "form-control" %>
-        </div>
+      <div class="form-group">
+        <%= f.label :country, "Pays" %>
+        <%= f.text_field :country, placeholder: "Pays", class: "form-control" %>
+      </div>
 
-        <div class="form-group">
-          <%= f.label :phone, "Téléphone" %>
-          <%= f.text_field :phone, placeholder: "Téléphone", class: "form-control" %>
-        </div>
+      <div class="form-group">
+        <%= f.label :phone, "Téléphone" %>
+        <%= f.text_field :phone, placeholder: "Téléphone", class: "form-control" %>
+      </div>
 
-        <div class="form-group">
-          <%= f.label :website, "Site internet" %>
-          <%= f.text_field :website, placeholder: "Site internet", class: "form-control" %>
-        </div>
+      <div class="form-group">
+        <%= f.label :website, "Site internet" %>
+        <%= f.text_field :website, placeholder: "Site internet", class: "form-control" %>
+      </div>
 
-        <%= f.submit class: "btn btn-success" %>
-      <% end %>
-    </div>
+      <%= f.submit class: "btn btn-success" %>
+    <% end %>
   </div>
 </div>

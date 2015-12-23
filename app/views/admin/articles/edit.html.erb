@@ -2,4 +2,34 @@
 
 <%= link_to "Retour à la liste", admin_articles_path %>
 
-<%= render "form" %>
+<%= simple_form_for [:admin, @article] do |f| %>
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <%= f.input :title %>
+      <%= f.input :text_fr %>
+      <%= f.input :text_en %>
+      <%= f.input :written_at %>
+      <%= f.input :status, prompt: :translate  %>
+
+      <p>
+        <strong><%= Article.human_attribute_name(:template_name) %></strong>
+        <%= @article.template_name_text %>
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <%= f.simple_fields_for :article_selections do |selection_form| %>
+      <div class="col-xs-12 col-md-6">
+        <%= selection_form.association :image %>
+        <%= selection_form.input :position %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <%= f.submit class: "btn btn-success" %>
+    </div>
+  </div>
+<% end %>

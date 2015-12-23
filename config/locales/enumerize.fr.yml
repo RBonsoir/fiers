@@ -1,0 +1,8 @@
+fr:
+  enumerize:
+    article:
+      status:
+        draft: Brouillon
+        published: Publié
+      template_name:
+        orchid: Orchidée

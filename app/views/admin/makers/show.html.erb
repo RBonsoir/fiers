@@ -2,18 +2,16 @@
 
 <%= link_to "Retour à la liste", admin_makers_path %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-      <p>Adresse: <%= @maker.street %></p>
-      <p>Code postal: <%= @maker.postcode %></p>
-      <p>Ville: <%= @maker.city %></p>
-      <p>Pays: <%= @maker.country%></p>
-      <p>Téléphone: <%= @maker.phone%></p>
-      <p>Site web: <%= @maker.website%></p>
-      <p>Ajouté dans la base: <%= @maker.created_at %></p>
-      <p>Dernière modification: <%= @maker.updated_at %></p>
-    </div>
+<div class="row">
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+    <p>Adresse: <%= @maker.street %></p>
+    <p>Code postal: <%= @maker.postcode %></p>
+    <p>Ville: <%= @maker.city %></p>
+    <p>Pays: <%= @maker.country%></p>
+    <p>Téléphone: <%= @maker.phone%></p>
+    <p>Site web: <%= @maker.website%></p>
+    <p>Ajouté dans la base: <%= @maker.created_at %></p>
+    <p>Dernière modification: <%= @maker.updated_at %></p>
   </div>
 </div>
 

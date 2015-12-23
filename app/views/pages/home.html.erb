@@ -6,19 +6,17 @@
   <%# TODO %>
 <% end %>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-      <h1>Welcome!</h1>
+<div class="row">
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+    <h1>Welcome!</h1>
 
-      <h2>Liste des articles</h2>      
+    <h2>Liste des articles</h2>
 
-      <p>
-        <% Article.all.each do |article| %>
-        <%= link_to article.title, article_path(article) %>
-        <% end %> 
-      </p>
-      <p><%= link_to "Ecrire un article", new_article_path %> </p>
-    </div>
+    <p>
+      <% Article.all.each do |article| %>
+      <%= link_to article.title, article_path(article) %>
+      <% end %>
+    </p>
+    <p><%= link_to "Ecrire un article", new_article_path %> </p>
   </div>
 </div>
