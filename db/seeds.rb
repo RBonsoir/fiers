@@ -5,9 +5,16 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+User.destroy_all
+Maker.destroy_all
+Product.destroy_all
 
 
-Maker.create(name: "Jars")
-Maker.create(name: "Comme des Garçons")
+User.create!(email: "evelyne@fiers.io", password: "kevinbecker", admin: true)
+User.create!(email: "tina@fiers.io", password: "romainbernard", admin: true)
 
-Product.create(name: "Produit à la race")
+
+Maker.create!(name: "Jars")
+Maker.create!(name: "Comme des Garçons")
+
+Product.create!(name: "Produit à la race")

@@ -1,5 +1,5 @@
 module Admin
-  class MakersController < ApplicationController
+  class MakersController < Admin::BaseController
     before_action :set_maker, only: [:show, :edit, :update, :destroy]
 
     def index

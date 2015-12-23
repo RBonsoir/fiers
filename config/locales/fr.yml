@@ -1,0 +1,3 @@
+fr:
+  admin:
+    authorization_failure: "Tu n'es pas administrateur"

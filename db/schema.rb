@@ -11,20 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151223112220) do
+ActiveRecord::Schema.define(version: 20151223142958) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "article_selections", force: :cascade do |t|
-    t.integer  "product_id"
     t.integer  "article_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "position"
+    t.integer  "image_id"
   end
 
   add_index "article_selections", ["article_id"], name: "index_article_selections_on_article_id", using: :btree
-  add_index "article_selections", ["product_id"], name: "index_article_selections_on_product_id", using: :btree
+  add_index "article_selections", ["image_id"], name: "index_article_selections_on_image_id", using: :btree
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -32,18 +33,23 @@ ActiveRecord::Schema.define(version: 20151223112220) do
     t.string   "text_en"
     t.string   "status"
     t.integer  "maker_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "author_id"
+    t.string   "template_name"
   end
 
   add_index "articles", ["maker_id"], name: "index_articles_on_maker_id", using: :btree
 
   create_table "images", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+    t.integer  "product_or_maker_id"
+    t.string   "product_or_maker_type"
   end
+
+  add_index "images", ["product_or_maker_type", "product_or_maker_id"], name: "index_images_on_product_or_maker_type_and_product_or_maker_id", using: :btree
 
   create_table "makers", force: :cascade do |t|
     t.string   "name"
@@ -92,7 +98,7 @@ ActiveRecord::Schema.define(version: 20151223112220) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "article_selections", "articles"
-  add_foreign_key "article_selections", "products"
+  add_foreign_key "article_selections", "images"
   add_foreign_key "articles", "makers"
   add_foreign_key "articles", "users", column: "author_id"
   add_foreign_key "products", "makers"
