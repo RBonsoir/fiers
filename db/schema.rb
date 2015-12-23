@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151221165412) do
+ActiveRecord::Schema.define(version: 20151223112220) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,33 +31,13 @@ ActiveRecord::Schema.define(version: 20151221165412) do
     t.string   "text_fr"
     t.string   "text_en"
     t.string   "status"
+    t.integer  "maker_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.integer  "author_id"
-    t.integer  "maker_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
-  add_index "articles", ["author_id"], name: "index_articles_on_author_id", using: :btree
   add_index "articles", ["maker_id"], name: "index_articles_on_maker_id", using: :btree
-
-  create_table "authors", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "contacts", force: :cascade do |t|
-    t.string   "last_name"
-    t.string   "first_name"
-    t.string   "phone"
-    t.string   "position"
-    t.string   "email"
-    t.integer  "maker_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "contacts", ["maker_id"], name: "index_contacts_on_maker_id", using: :btree
 
   create_table "images", force: :cascade do |t|
     t.string   "name"
@@ -86,28 +66,34 @@ ActiveRecord::Schema.define(version: 20151221165412) do
 
   add_index "products", ["maker_id"], name: "index_products_on_maker_id", using: :btree
 
-  create_table "taggings", force: :cascade do |t|
-    t.integer  "image_id"
-    t.integer  "tag_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "taggings", ["image_id"], name: "index_taggings_on_image_id", using: :btree
-  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
-
   create_table "tags", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,     null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet     "current_sign_in_ip"
+    t.inet     "last_sign_in_ip"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.boolean  "admin",                  default: false
+  end
+
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
   add_foreign_key "article_selections", "articles"
   add_foreign_key "article_selections", "products"
-  add_foreign_key "articles", "authors"
   add_foreign_key "articles", "makers"
-  add_foreign_key "contacts", "makers"
+  add_foreign_key "articles", "users", column: "author_id"
   add_foreign_key "products", "makers"
-  add_foreign_key "taggings", "images"
-  add_foreign_key "taggings", "tags"
 end

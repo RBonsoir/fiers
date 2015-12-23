@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
+  root to: "articles#index"
 
-	resources :makers do
-		resources :products
-	end
+  devise_for :users
 
-	resources :articles
+  resources :makers do
+    resources :products
+  end
+
+  resources :articles
 
 end
