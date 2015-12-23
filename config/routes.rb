@@ -3,10 +3,23 @@ Rails.application.routes.draw do
 
   devise_for :users
 
-  resources :makers do
-    resources :products
+  resources :makers, only: :show do
+    resources :messages, only: :create
   end
 
-  resources :articles
+  resources :products, only: :show do
+    resources :messages, only: :create
+  end
+
+  resources :articles, only: [] do
+    resources :messages, only: :create
+  end
+
+  namespace :admin do
+    resources :makers
+    resources :products
+    resources :articles
+    resources :messages
+  end
 
 end
