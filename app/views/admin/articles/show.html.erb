@@ -1,14 +1,14 @@
 <div class="container">
-	<div class="row">
-		<div class="col-sm-6 col-sm-offset-3">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
 
-			<h1><%= @article.title %></h1>
+      <h1><%= @article.title %></h1>
 
-			<p><%= @article.text_fr %></p>
-			<p><%= @article.text_en %></p>
+      <p><%= @article.text_fr %></p>
+      <p><%= @article.text_en %></p>
 
-			<%= link_to "Modifier l'article", edit_article_path(@article) %> 
-			<%= link_to "Supprimer l'article", article_path(@article), method: :delete %> 
-		</div>
-	</div>
+      <%= link_to "Modifier l'article", edit_admin_article_path(@article) %>
+      <%= link_to "Supprimer l'article", admin_article_path(@article), method: :delete %>
+    </div>
+  </div>
 </div>

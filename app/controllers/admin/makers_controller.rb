@@ -15,7 +15,7 @@ module Admin
 
     def create
       @maker = Maker.create(maker_params)
-      redirect_to makers_path
+      redirect_to admin_makers_path
     end
 
     def edit
@@ -23,12 +23,12 @@ module Admin
 
     def update
       @maker.update(maker_params)
-      redirect_to maker_path(@maker)
+      redirect_to admin_maker_path(@maker)
     end
 
     def destroy
       @maker.destroy
-      redirect_to makers_path
+      redirect_to admin_makers_path
     end
 
     private

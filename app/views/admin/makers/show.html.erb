@@ -1,24 +1,24 @@
 <h1 class="text-center"> <%= @maker.name %></h1>
 
-<%= link_to "Retour à la liste", makers_path %>
+<%= link_to "Retour à la liste", admin_makers_path %>
 
 <div class="container">
-	<div class="row">
-		<div class="col-xs-12 col-sm-8 col-sm-offset-2">
-			<p>Adresse: <%= @maker.street %></p>
-			<p>Code postal: <%= @maker.postcode %></p>
-			<p>Ville: <%= @maker.city %></p>
-			<p>Pays: <%= @maker.country%></p>
-			<p>Téléphone: <%= @maker.phone%></p>
-			<p>Site web: <%= @maker.website%></p>
-			<p>Ajouté dans la base: <%= @maker.created_at %></p>
-			<p>Dernière modification: <%= @maker.updated_at %></p>
-		</div>
-	</div>	
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <p>Adresse: <%= @maker.street %></p>
+      <p>Code postal: <%= @maker.postcode %></p>
+      <p>Ville: <%= @maker.city %></p>
+      <p>Pays: <%= @maker.country%></p>
+      <p>Téléphone: <%= @maker.phone%></p>
+      <p>Site web: <%= @maker.website%></p>
+      <p>Ajouté dans la base: <%= @maker.created_at %></p>
+      <p>Dernière modification: <%= @maker.updated_at %></p>
+    </div>
+  </div>
 </div>
 
-<%= link_to "Modifier la fiche", edit_maker_path(@maker) %>
+<%= link_to "Modifier la fiche", edit_admin_maker_path(@maker) %>
 
-<%= link_to "Supprimer le fournisseur", maker_path(@maker), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer cette fiche?", class: "btn btn-danger" }  %>
+<%= link_to "Supprimer le fournisseur", admin_maker_path(@maker), method: :delete, data: { confirm: "Voulez-vous vraiment supprimer cette fiche?", class: "btn btn-danger" }  %>
 
-<%= link_to "Retour à la liste", makers_path %>
+<%= link_to "Retour à la liste", admin_makers_path %>

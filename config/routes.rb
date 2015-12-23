@@ -16,10 +16,11 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    root to: 'articles#index'
+
     resources :makers
     resources :products
     resources :articles
     resources :messages
   end
-
 end
